@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>William Neely's page</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Welcome to My Website!</h1>
+    <p>This is my personal GitHub page.</p>
+
+    <h2>About Me</h2>
+    <p>I enjoy programming and working on projects.</p>
+</body>
+</html>
