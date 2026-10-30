@@ -1,14 +1,154 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>William Neely's page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William's Website</title>
     <link rel="stylesheet" href="main.css">
+
+    <style>
+        /* MY PROJECTS SECTION */
+
+        #projects {
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project-card {
+            display: block;
+            padding: 25px;
+            border: 3px solid cyan;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 0 20px magenta;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            border-color: yellow;
+            box-shadow: 0 0 35px cyan;
+        }
+
+        .project-card h3 {
+            color: yellow;
+            text-shadow: 0 0 10px magenta;
+            overflow-wrap: anywhere;
+        }
+
+        .project-card span {
+            color: cyan;
+            font-weight: bold;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .project-card {
+                transition: none;
+            }
+            .project-card:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>Welcome to William's Website!</h1>
-    <p>This is my personal GitHub page.</p>
+
+    <p>This is my personal GitHub page!</p>
 
     <h2>About Me</h2>
-    <p>I enjoy programming and working on projects.</p>
+
+    <p>I enjoy programming, gaming, and
+       working on different projects.</p>
+
+    <!-- PROJECT SHOWCASE -->
+
+    <section id="projects">
+
+        <h2>My Programming Projects</h2>
+
+        <p>Here are some of the Java projects
+           I've worked on!</p>
+
+        <div id="project-list" class="project-grid">
+            Loading projects...
+        </div>
+
+    </section>
+
+    <script>
+        const apiURL =
+            "https://api.github.com/repos/WilliamNeely/Code-name-JACK-BLACK/contents";
+
+        fetch(apiURL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to load projects");
+                }
+                return response.json();
+            })
+            .then(files => {
+                const list =
+                    document.getElementById("project-list");
+
+                list.textContent = "";
+
+                const projects = files.filter(file =>
+                    file.type === "file" &&
+                    !/^readme(\..*)?$/i.test(file.name)
+                );
+
+                projects.forEach(project => {
+                    const card =
+                        document.createElement("a");
+
+                    card.className = "project-card";
+                    card.href = project.html_url;
+                    card.target = "_blank";
+                    card.rel = "noopener noreferrer";
+
+                    const title =
+                        document.createElement("h3");
+
+                    title.textContent = project.name;
+
+                    const linkText =
+                        document.createElement("span");
+
+                    linkText.textContent =
+                        "View Code on GitHub";
+
+                    card.append(title, linkText);
+                    list.appendChild(card);
+                });
+
+                if (projects.length === 0) {
+                    list.textContent =
+                        "No projects found yet.";
+                }
+            })
+            .catch(error => {
+                document.getElementById(
+                    "project-list"
+                ).textContent =
+                    "Unable to load projects right now.";
+
+                console.error(error);
+            });
+    </script>
+
 </body>
 </html>
