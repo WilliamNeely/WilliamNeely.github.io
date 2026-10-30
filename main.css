@@ -1,0 +1,85 @@
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    background: black;
+    color: white;
+    font-family: "Comic Sans MS", cursive;
+    text-align: center;
+    overflow-x: hidden;
+    isolation: isolate;
+}
+
+/* SPINNING RAINBOW BACKGROUND */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -100vmax;
+    background: conic-gradient(
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        magenta,
+        red
+    );
+    animation: rainbowSpin 12s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rainbowSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* GLOWING TITLE */
+h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow:
+        0 0 10px red,
+        0 0 20px blue,
+        0 0 30px magenta;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px cyan;
+    }
+    to {
+        text-shadow: 0 0 30px magenta;
+    }
+}
+
+/* NEON CONTENT */
+h1, h2, p {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    border: 3px solid white;
+    border-radius: 15px;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+h2 {
+    color: yellow;
+    text-shadow: 0 0 15px orange;
+}
+
+p {
+    font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before, h1 {
+        animation: none;
+    }
+}
