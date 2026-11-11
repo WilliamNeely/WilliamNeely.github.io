@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +16,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
             padding: 20px;
         }
@@ -65,14 +63,19 @@
 
 <body>
 
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+    </nav>
+
     <h1>Welcome to William's Website!</h1>
 
     <p>This is my personal GitHub page!</p>
 
-    <h2>About Me</h2>
+    <h2>A Little About Me</h2>
 
-    <p>I enjoy programming, gaming, and
-       working on different projects.</p>
+    <p>I enjoy programming, gaming, and working on different projects. Check out my About page to learn a little more about me.</p>
+    <a class="about-button" href="about.html">More About Me</a>
 
     <!-- PROJECT SHOWCASE -->
 
@@ -80,8 +83,7 @@
 
         <h2>My Programming Projects</h2>
 
-        <p>Here are some of the Java projects
-           I've worked on!</p>
+        <p>Here are some of the Java projects I've worked on!</p>
 
         <div id="project-list" class="project-grid">
             Loading projects...
@@ -101,51 +103,38 @@
                 return response.json();
             })
             .then(files => {
-                const list =
-                    document.getElementById("project-list");
-
+                const list = document.getElementById("project-list");
                 list.textContent = "";
 
                 const projects = files.filter(file =>
                     file.type === "file" &&
-                    !/^readme(\..*)?$/i.test(file.name)
+                    !/^readme(\\..*)?$/i.test(file.name)
                 );
 
                 projects.forEach(project => {
-                    const card =
-                        document.createElement("a");
-
+                    const card = document.createElement("a");
                     card.className = "project-card";
                     card.href = project.html_url;
                     card.target = "_blank";
                     card.rel = "noopener noreferrer";
 
-                    const title =
-                        document.createElement("h3");
-
+                    const title = document.createElement("h3");
                     title.textContent = project.name;
 
-                    const linkText =
-                        document.createElement("span");
-
-                    linkText.textContent =
-                        "View Code on GitHub";
+                    const linkText = document.createElement("span");
+                    linkText.textContent = "View Code on GitHub";
 
                     card.append(title, linkText);
                     list.appendChild(card);
                 });
 
                 if (projects.length === 0) {
-                    list.textContent =
-                        "No projects found yet.";
+                    list.textContent = "No projects found yet.";
                 }
             })
             .catch(error => {
-                document.getElementById(
-                    "project-list"
-                ).textContent =
+                document.getElementById("project-list").textContent =
                     "Unable to load projects right now.";
-
                 console.error(error);
             });
     </script>
