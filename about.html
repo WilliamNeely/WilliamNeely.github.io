@@ -1,19 +1,175 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>About Me</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | William's Website</title>
+    <link rel="stylesheet" href="main.css">
+
+    <style>
+        .about-intro {
+            max-width: 850px;
+            margin: 0 auto 30px;
+            animation: aboutFade 0.8s ease both;
+        }
+
+        .about-intro p {
+            max-width: 760px;
+        }
+
+        .about-grid {
+            max-width: 1050px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 22px;
+            text-align: left;
+        }
+
+        .about-card {
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+            border: 2px solid cyan;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.90);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.45);
+            animation: cardRise 0.8s ease both;
+            transition: transform 0.28s ease, border-color 0.28s ease,
+                        box-shadow 0.28s ease;
+        }
+
+        .about-card:nth-child(2) { animation-delay: 0.12s; }
+        .about-card:nth-child(3) { animation-delay: 0.24s; }
+        .about-card:nth-child(4) { animation-delay: 0.36s; }
+
+        .about-card::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: -65px;
+            right: -55px;
+            border-radius: 50%;
+            background: magenta;
+            opacity: 0.22;
+            filter: blur(22px);
+            pointer-events: none;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: yellow;
+            box-shadow: 0 0 28px cyan, 0 0 38px rgba(255, 0, 255, 0.55);
+        }
+
+        .about-card .eyebrow {
+            display: block;
+            color: cyan;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px cyan;
+        }
+
+        .about-card h2 {
+            max-width: none;
+            margin: 15px 0;
+            padding: 12px;
+            border-color: magenta;
+            font-size: 23px;
+        }
+
+        .about-card p {
+            max-width: none;
+            margin: 10px 0 0;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            color: white;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .about-footer {
+            max-width: 760px;
+            margin: 32px auto 10px;
+            color: white;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        @keyframes aboutFade {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes cardRise {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .about-intro,
+            .about-card {
+                animation: none;
+            }
+
+            .about-card {
+                transition: none;
+            }
+
+            .about-card:hover {
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>About Me</h1>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+    </nav>
 
-    <p>Hello! My name is William. I enjoy computers, coding, and
-    creating projects like games and websites.</p>
+    <header class="about-intro">
+        <h1>About Me</h1>
+        <p>Hey! I'm William. This is a little place to share what I enjoy making, learning, and working on.</p>
+    </header>
 
-    <p>This website is where I can share some of my projects
-    and things I have been working on.</p>
+    <main class="about-grid">
+        <section class="about-card">
+            <span class="eyebrow">01 / WHAT I LIKE</span>
+            <h2>Computers, Coding & Games</h2>
+            <p>I enjoy computers, programming, and gaming. I like figuring out how things work and finding new things I can create with technology.</p>
+        </section>
+
+        <section class="about-card">
+            <span class="eyebrow">02 / WHAT I MAKE</span>
+            <h2>Projects & Experiments</h2>
+            <p>I work on projects like websites, Java programs, and games. I like trying ideas, testing them out, and improving them when something doesn't work the first time.</p>
+        </section>
+
+        <section class="about-card">
+            <span class="eyebrow">03 / WHAT I'M LEARNING</span>
+            <h2>Learning by Building</h2>
+            <p>I'm learning more about programming and web development by making things myself. Every project gives me a chance to practice and learn something new.</p>
+        </section>
+
+        <section class="about-card">
+            <span class="eyebrow">04 / THIS WEBSITE</span>
+            <h2>My Corner of the Web</h2>
+            <p>This website is where I can show some of the projects I've worked on and keep adding new things as I create them. Thanks for checking it out!</p>
+        </section>
+    </main>
+
+    <a class="about-button" href="index.html">Back to Home</a>
+
+    <footer class="about-footer">
+        Made by William • Thanks for visiting!
+    </footer>
 
 </body>
 </html>
