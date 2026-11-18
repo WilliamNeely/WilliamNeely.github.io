@@ -117,7 +117,7 @@ p {
     justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
     margin: 24px 10px 0;
     padding: 0;
 }
@@ -125,35 +125,50 @@ p {
 .site-social-links .social-link {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
     padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
     color: white;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1;
     font-weight: normal;
     text-decoration: none;
-    text-shadow: 0 0 5px cyan;
+    text-shadow: 0 0 4px cyan;
     box-shadow: none;
-    transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 .site-social-links .social-link:hover {
     color: yellow;
-    text-shadow: 0 0 8px cyan;
+    text-shadow: 0 0 7px cyan;
 }
 
-.site-social-links svg {
-    width: 10px !important;
-    height: 10px !important;
-    min-width: 10px !important;
-    max-width: 10px !important;
-    min-height: 10px !important;
-    max-height: 10px !important;
-    flex: 0 0 10px !important;
-    display: inline-block !important;
-    overflow: hidden;
+.site-social-links .tiny-icon-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 9px !important;
+    height: 9px !important;
+    min-width: 9px !important;
+    max-width: 9px !important;
+    min-height: 9px !important;
+    max-height: 9px !important;
+    overflow: hidden !important;
+    flex: 0 0 9px !important;
+    line-height: 0 !important;
+}
+
+.site-social-links .tiny-icon-wrap svg {
+    width: 9px !important;
+    height: 9px !important;
+    min-width: 9px !important;
+    max-width: 9px !important;
+    min-height: 9px !important;
+    max-height: 9px !important;
+    display: block !important;
+    flex: 0 0 9px !important;
+    overflow: hidden !important;
     fill: currentColor;
 }
 
