@@ -219,3 +219,63 @@ body > p,
         transform: none;
     }
 }
+
+
+/* CONTACT PAGE */
+.contact-content {
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 28px;
+    border: 2px solid cyan;
+    border-radius: 18px;
+    background: rgba(0, 0, 0, 0.88);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.45);
+    text-align: left;
+}
+
+.contact-content h2 {
+    margin: 0 0 22px;
+    text-align: center;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 4px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.35);
+    color: white;
+    font-size: 17px;
+}
+
+.contact-detail:last-child {
+    border-bottom: 0;
+}
+
+.contact-detail strong {
+    color: cyan;
+}
+
+.contact-detail a {
+    color: yellow;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-detail a:hover {
+    text-shadow: 0 0 10px magenta;
+    text-decoration: underline;
+}
+
+.contact-note {
+    margin: 22px auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    font-size: 14px !important;
+    line-height: 1.6;
+    text-align: center;
+}
+
