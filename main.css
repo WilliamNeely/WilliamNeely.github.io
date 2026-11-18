@@ -111,63 +111,70 @@ p {
     transform: translateY(-4px) scale(1.04);
 }
 
-/* TINY INLINE CONTACT LINKS AT THE BOTTOM OF EACH PAGE */
+/* CENTERED CONTACT LINKS AT THE BOTTOM OF EACH PAGE */
 .site-social-links {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    margin: 24px 10px 0;
-    padding: 0;
+    gap: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 24px auto 0;
+    padding: 0 10px;
 }
 
 .site-social-links .social-link {
     display: inline-flex;
     align-items: center;
-    gap: 3px;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
+    justify-content: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border: 1px solid magenta;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.82);
     color: white;
-    font-size: 11px;
-    line-height: 1;
-    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.2;
+    font-weight: bold;
     text-decoration: none;
-    text-shadow: 0 0 4px cyan;
-    box-shadow: none;
+    text-shadow: 0 0 5px cyan;
+    box-shadow: 0 0 9px rgba(255, 0, 255, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease,
+                box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .site-social-links .social-link:hover {
     color: yellow;
-    text-shadow: 0 0 7px cyan;
+    border-color: cyan;
+    box-shadow: 0 0 14px cyan;
+    transform: translateY(-2px);
 }
 
 .site-social-links .tiny-icon-wrap {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 9px !important;
-    height: 9px !important;
-    min-width: 9px !important;
-    max-width: 9px !important;
-    min-height: 9px !important;
-    max-height: 9px !important;
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    max-width: 15px !important;
+    min-height: 15px !important;
+    max-height: 15px !important;
     overflow: hidden !important;
-    flex: 0 0 9px !important;
+    flex: 0 0 15px !important;
     line-height: 0 !important;
 }
 
 .site-social-links .tiny-icon-wrap svg {
-    width: 9px !important;
-    height: 9px !important;
-    min-width: 9px !important;
-    max-width: 9px !important;
-    min-height: 9px !important;
-    max-height: 9px !important;
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    max-width: 15px !important;
+    min-height: 15px !important;
+    max-height: 15px !important;
     display: block !important;
-    flex: 0 0 9px !important;
+    flex: 0 0 15px !important;
     overflow: hidden !important;
     fill: currentColor;
 }
