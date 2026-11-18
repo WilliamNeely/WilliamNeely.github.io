@@ -111,6 +111,28 @@ p {
     transform: translateY(-4px) scale(1.04);
 }
 
+/* ICON LINKS IN THE SHARED NAVIGATION */
+.site-nav a.nav-icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-icon-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    fill: currentColor;
+}
+
+.nav-icon-link .mail-icon {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
 .site-nav a[aria-current="page"] {
     border-color: yellow;
     color: yellow;
